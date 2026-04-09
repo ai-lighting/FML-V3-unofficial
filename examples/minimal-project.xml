@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Minimal FML XML project example.
+  Note: All coordinates are in METRES (not centimetres).
+-->
+<project>
+  <name>Minimal XML Project</name>
+  <description>A minimal FML XML project with one room</description>
+  <public>false</public>
+
+  <floor>
+    <name>Ground Floor</name>
+    <level>0</level>
+    <height>2.8</height>
+
+    <design>
+      <name>Default Design</name>
+
+      <!-- Asset definitions -->
+      <asset id="floor_tile">
+        <name>Floor Tile</name>
+        <color>#CCCCCC</color>
+        <url2d>https://example.com/textures/tile.png</url2d>
+      </asset>
+
+      <asset id="chair_dining">
+        <name>Dining Chair</name>
+        <url2d>https://example.com/2d/chair.svg</url2d>
+        <url3d>https://example.com/3d/chair.dae</url3d>
+        <layer>3</layer>
+      </asset>
+
+      <!-- Walls (as lines with 6 floats: x1 y1 z1 x2 y2 z2) -->
+      <line>
+        <type>wall</type>
+        <points>0.0 0.0 0.0 5.0 0.0 0.0</points>
+        <thickness>0.15</thickness>
+        <height>2.8</height>
+      </line>
+      <line>
+        <type>wall</type>
+        <points>5.0 0.0 0.0 5.0 4.0 0.0</points>
+        <thickness>0.15</thickness>
+        <height>2.8</height>
+      </line>
+      <line>
+        <type>wall</type>
+        <points>5.0 4.0 0.0 0.0 4.0 0.0</points>
+        <thickness>0.15</thickness>
+        <height>2.8</height>
+      </line>
+      <line>
+        <type>wall</type>
+        <points>0.0 4.0 0.0 0.0 0.0 0.0</points>
+        <thickness>0.15</thickness>
+        <height>2.8</height>
+      </line>
+
+      <!-- Furniture object -->
+      <object>
+        <asset refid="chair_dining"/>
+        <type>furniture</type>
+        <points>2.5 2.0 0.0</points>
+        <size>0.5 0.5 0.9</size>
+        <rotation>0.0 0.0 0.0</rotation>
+        <mirrored>false false false</mirrored>
+        <locked>false</locked>
+      </object>
+
+      <!-- Floor area -->
+      <area>
+        <line>
+          <type>generated_area</type>
+          <points>0 0 0 5 0 0 5 4 0 0 4 0</points>
+          <color>#CCCCCC</color>
+          <asset refid="floor_tile"/>
+        </line>
+      </area>
+
+      <!-- Text label -->
+      <object>
+        <text>Dining Room</text>
+        <font-family>Arial</font-family>
+        <font-size>18</font-size>
+        <font-color>#333333</font-color>
+        <font-bold>false</font-bold>
+        <font-italic>false</font-italic>
+        <font-underline>false</font-underline>
+        <font-outline>false</font-outline>
+        <background-color>#FFFFFF</background-color>
+        <background-alpha>0</background-alpha>
+      </object>
+    </design>
+  </floor>
+</project>

@@ -1,0 +1,92 @@
+FML LICENSE NOTICE
+(Version 1, 2024)
+
+This 'FML standard' (including documentation and code samples) is being
+provided by FLOORPLANNER.IP B.V. (hereafter 'FLOORPLANNER') and any
+Contributor under the following license ('License').
+
+
+License
+
+By using and/or copying the FML Standard, you (the 'Licensee') agree that
+you have read, understood, and will comply with the following terms and
+conditions:
+
+  * Any floorplan created by using the FML Standard should include the
+    following tag in the floorplan file code:
+
+    "This floorplan has been created by using the FML Standard
+    (https://floorplanner.com/fml/)"
+
+Permission to copy, modify, and distribute the FML Standard, with or
+without modification, for any purpose and without fee or royalty is hereby
+granted, provided that you include the following on ALL copies of the FML
+Standard or portions thereof that you use, including changes or
+modifications:
+
+  * The full text of this NOTICE in a location viewable to users of the
+    redistributed or derivative work of the FML Standard;
+
+  * The following FML Standard short notice ('copyright tag') should be
+    included in the redistributed or derivative work of the FML Standard:
+
+    "Copyright (c) [year] FLOORPLANNER.IP B.V. (https://floorplanner.com/)
+    and Contributors. All Rights Reserved. This 'FML standard' is
+    distributed under the FML License
+    (https://floorplanner.com/fml/license.md), WITHOUT ANY WARRANTY
+    including the implied warranty of MERCHANTABILITY or FITNESS FOR A
+    PARTICULAR PURPOSE. FML standard documentation and code samples are
+    accessible at: https://floorplanner.com/fml/"
+
+  * Notice of any changes or modifications, with a copyright statement on
+    the changed documentation or in the code sample, clearly stating that
+    it has been derived from the FML Standard, the date of change or
+    modification, and that the change or modification is not part of the
+    FML Standard which includes the following short notice:
+
+    "This code / documentation has been derived from the FML Standard
+    (https://floorplanner.com/fml/). This change and/or modification is
+    not part of the FML Standard".
+
+Licensee grants FLOORPLANNER hereby as Contributor the right to copy,
+modify, and distribute any change or modification to the FML Standard of
+which Licensee is copyright holder and to include the aforementioned change
+or modification, with or without further modification, for any purpose and
+without fee or royalty, in (a new version of) the FML Standard. It is the
+sole discretion of FLOORPLANNER whether or not to include a change or
+modification, with or without further modification, in (a new version of)
+the FML Standard. Each Contributor warrants that the copyright in the
+changes or modifications Contributor brings to the FML Standard are owned
+by Contributor or licensed to Contributor and that Contributor has the power
+and authority to grant the Licence. Contributors will be listed in the FML
+Standard under the header 'FML Standard Contributors'.
+
+If the Licensee distributes or communicates copies of the FML Standard or
+derivative works, this distribution or communication will be done under the
+terms of this Licence or of a later version of this Licence. The Licensee
+(becoming licensor) cannot offer or impose any additional terms or
+conditions on the FML Standard or derivative work that alter or restrict
+the terms of this Licence.
+
+
+Disclaimers
+
+THIS 'FML STANDARD' (INCLUDING DOCUMENTATION AND CODE SAMPLES) IS PROVIDED
+"AS IS", AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, WARRANTIES OF
+MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF
+THE 'FML STANDARD' (INCLUDING DOCUMENTATION AND CODE SAMPLES) WILL NOT
+INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+
+COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR
+CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE 'FML STANDARD'
+(INCLUDING DOCUMENTATION AND CODE SAMPLES).
+
+COPYRIGHT IN ANY DATA SUBMITTED TO THE FML STANDARD IS NOT CHANGED BY THIS
+LICENCE.
+
+
+---
+
+Source: https://floorplanner.com/fml-license
+Original PDF: FML License V01c 04102024.pdf

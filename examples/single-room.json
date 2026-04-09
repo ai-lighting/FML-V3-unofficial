@@ -1,0 +1,214 @@
+{
+  "name": "Single Room Example",
+  "public": false,
+  "settings": {
+    "wallHeight": 280,
+    "wallThickness": 15,
+    "wallOuterThickness": 30,
+    "useMetric": true,
+    "showGrid": true,
+    "showDims": true,
+    "showAreaDims": true,
+    "showObjects": true,
+    "showLabels": true,
+    "visuals": "ALL"
+  },
+  "floors": [
+    {
+      "name": "Ground Floor",
+      "level": 0,
+      "height": 280,
+      "designs": [
+        {
+          "name": "Main Layout",
+          "walls": [
+            {
+              "a": { "x": 0, "y": 0 },
+              "b": { "x": 500, "y": 0 },
+              "c": null,
+              "az": { "z": 0, "h": 280 },
+              "bz": { "z": 0, "h": 280 },
+              "thickness": 30,
+              "balance": 0.5,
+              "openings": [
+                {
+                  "type": "window",
+                  "refid": "window_standard",
+                  "width": 120,
+                  "z": 90,
+                  "z_height": 120,
+                  "t": 0.5,
+                  "frameColor": "#FFFFFF"
+                }
+              ],
+              "decor": {
+                "left": { "color": "#F5F5DC" },
+                "right": { "color": "#F5F5DC" }
+              }
+            },
+            {
+              "a": { "x": 500, "y": 0 },
+              "b": { "x": 500, "y": 400 },
+              "c": null,
+              "az": { "z": 0, "h": 280 },
+              "bz": { "z": 0, "h": 280 },
+              "thickness": 30,
+              "balance": 0.5,
+              "openings": [],
+              "decor": {
+                "left": null,
+                "right": null
+              }
+            },
+            {
+              "a": { "x": 500, "y": 400 },
+              "b": { "x": 0, "y": 400 },
+              "c": null,
+              "az": { "z": 0, "h": 280 },
+              "bz": { "z": 0, "h": 280 },
+              "thickness": 30,
+              "balance": 0.5,
+              "openings": [],
+              "decor": {
+                "left": null,
+                "right": null
+              }
+            },
+            {
+              "a": { "x": 0, "y": 400 },
+              "b": { "x": 0, "y": 0 },
+              "c": null,
+              "az": { "z": 0, "h": 280 },
+              "bz": { "z": 0, "h": 280 },
+              "thickness": 30,
+              "balance": 0.5,
+              "openings": [
+                {
+                  "type": "door",
+                  "refid": "door_single",
+                  "width": 90,
+                  "z": 0,
+                  "z_height": 210,
+                  "t": 0.5,
+                  "mirrored": [0, 0]
+                }
+              ],
+              "decor": {
+                "left": null,
+                "right": null
+              }
+            }
+          ],
+          "areas": [
+            {
+              "poly": [
+                { "x": 0, "y": 0 },
+                { "x": 500, "y": 0 },
+                { "x": 500, "y": 400 },
+                { "x": 0, "y": 400 }
+              ],
+              "color": "#D2B48C",
+              "refid": "wood_oak",
+              "showAreaLabel": true,
+              "name": "Living Room",
+              "rotation": 0,
+              "sx": 100,
+              "sy": 100
+            }
+          ],
+          "surfaces": [],
+          "dimensions": [
+            {
+              "a": { "x": 0, "y": -50 },
+              "b": { "x": 500, "y": -50 },
+              "type": "custom_dimension"
+            },
+            {
+              "a": { "x": -50, "y": 0 },
+              "b": { "x": -50, "y": 400 },
+              "type": "custom_dimension"
+            }
+          ],
+          "items": [
+            {
+              "x": 250,
+              "y": 200,
+              "z": 0,
+              "refid": "sofa_modern_3seat",
+              "width": 220,
+              "height": 90,
+              "z_height": 85,
+              "rotation": 0
+            },
+            {
+              "x": 250,
+              "y": 120,
+              "z": 0,
+              "refid": "coffee_table_rect",
+              "width": 100,
+              "height": 60,
+              "z_height": 45,
+              "rotation": 0
+            },
+            {
+              "x": 450,
+              "y": 50,
+              "z": 0,
+              "refid": "floor_lamp_arc",
+              "width": 40,
+              "height": 40,
+              "z_height": 180,
+              "rotation": 0,
+              "light": {
+                "on": true,
+                "color": "#FFF5E1",
+                "watt": 75
+              }
+            }
+          ],
+          "labels": [
+            {
+              "x": 250,
+              "y": 350,
+              "text": "5.0m x 4.0m",
+              "fontFamily": "Arial",
+              "fontSize": 14,
+              "letterSpacing": 0,
+              "fontColor": "#666666",
+              "backgroundColor": "#FFFFFF",
+              "backgroundAlpha": 0,
+              "align": "center",
+              "rotation": 0
+            }
+          ],
+          "lines": []
+        }
+      ],
+      "cameras": [
+        {
+          "id": 1,
+          "name": "Overview",
+          "type_name": "orbital",
+          "x": 250,
+          "y": 200,
+          "z": 500,
+          "ux": 0,
+          "uy": 0,
+          "uz": 1,
+          "dx": 0,
+          "dy": 0,
+          "dz": -1,
+          "fov": 60,
+          "lightSettings": {
+            "altitude": 45,
+            "azimuth": 180,
+            "day": true,
+            "intensity": 1.0,
+            "profile": false
+          },
+          "background_image": {}
+        }
+      ]
+    }
+  ]
+}
