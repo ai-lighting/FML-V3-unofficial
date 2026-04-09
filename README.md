@@ -23,6 +23,10 @@ All content has been sourced from:
 
 The documentation has been restructured and reformatted for clarity. No original specification content has been invented — this is a reorganisation of Floorplanner's own published material.
 
+### Best-Efforts Disclaimer
+
+> **This is a best-efforts, unofficial recreation of the FML v3 specification.** While every effort has been made to accurately document the FML v3 protocol from Floorplanner's published sources, this repository comes with **no warranty of correctness or completeness**. The FML format may have undocumented features, internal changes, or nuances not captured here. **Users must validate their implementations against the [official FML documentation](https://floorplanner.com/fml) and the [official v3.0 Specification](https://floorplanner.readme.io/reference/v30-specification).** When in doubt, the official Floorplanner sources are authoritative — not this repository.
+
 ---
 
 ## What is FML?
@@ -69,12 +73,21 @@ The FML Standard (including documentation and code samples) is provided by FLOOR
 | [API Integration](docs/10-api-integration.md) | REST API endpoints for FML import/export |
 | [XML Legacy Format](docs/11-xml-legacy-format.md) | Legacy XML representation and RelaxNG schema |
 | [Type Reference](docs/12-type-reference.md) | Complete alphabetical type and interface reference |
+| [Editor Embedding & JS API](docs/13-editor-embedding.md) | Embedding the Floorplanner editor and JavaScript API |
 
-## Schema
+## Schema & Types
 
 | File | Description |
 |------|-------------|
 | [schema/fml.rng](schema/fml.rng) | RelaxNG schema for FML XML validation (from [floorplanner/fml](https://github.com/floorplanner/fml)) |
+| [schema/fml-v3.schema.json](schema/fml-v3.schema.json) | JSON Schema for FML v3 JSON validation (derived from the v3.0 spec) |
+| [types/fml-v3.d.ts](types/fml-v3.d.ts) | TypeScript type definitions for FML v3 |
+
+## Tools
+
+| File | Description |
+|------|-------------|
+| [tools/validate-fml.mjs](tools/validate-fml.mjs) | Node.js FML JSON validator (uses Ajv + the JSON Schema) |
 
 ## Examples
 

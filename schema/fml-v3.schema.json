@@ -1,0 +1,440 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/ai-lighting/FML-V3-unofficial/schema/fml-v3.schema.json",
+  "title": "FML v3 Project",
+  "description": "JSON Schema for Floorplanner FML v3 (Floorplan Markup Language). This is an unofficial, best-efforts schema derived from the published FML v3.0 Specification (https://floorplanner.readme.io/reference/v30-specification). It may be incomplete or inaccurate — validate against the official docs. Copyright © 2024 FLOORPLANNER.IP B.V. (https://floorplanner.com/) and Contributors. This code / documentation has been derived from the FML Standard (https://floorplanner.com/fml/). This change and/or modification is not part of the FML Standard.",
+  "type": "object",
+  "required": ["name", "floors"],
+  "properties": {
+    "id": { "type": "integer" },
+    "name": { "type": "string" },
+    "public": { "type": "boolean" },
+    "settings": { "$ref": "#/$defs/ProjectSettings" },
+    "floors": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/Floor" }
+    }
+  },
+  "additionalProperties": true,
+
+  "$defs": {
+    "Color": {
+      "type": "string",
+      "pattern": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$"
+    },
+
+    "Point": {
+      "type": "object",
+      "required": ["x", "y"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+
+    "Point3D": {
+      "type": "object",
+      "required": ["x", "y", "z"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "z": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+
+    "Endpoint3D": {
+      "type": "object",
+      "required": ["z", "h"],
+      "properties": {
+        "z": { "type": "number" },
+        "h": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+
+    "ProjectSettings": {
+      "type": "object",
+      "properties": {
+        "wallHeight": { "type": "number" },
+        "wallSectionHeight": { "type": "number" },
+        "wallThickness": { "type": "number" },
+        "wallOuterThickness": { "type": "number" },
+        "useMetric": { "type": "boolean" },
+        "showGrid": { "type": "boolean" },
+        "showDims": { "type": "boolean" },
+        "showShortDims": { "type": "boolean" },
+        "showAreaDims": { "type": "boolean" },
+        "generateOuterDimension": { "type": "boolean" },
+        "showDropShadows": { "type": "boolean" },
+        "showObjects": { "type": "boolean" },
+        "showFixtures": { "type": "boolean" },
+        "showItemOutline": { "type": "boolean" },
+        "showObjectColour": { "type": "boolean" },
+        "showStructuralColour": { "type": "boolean" },
+        "showFloorsBelow": { "type": "boolean" },
+        "showObjects3d": { "type": "boolean" },
+        "showObjectMono": { "type": "boolean" },
+        "showLights": { "type": "boolean" },
+        "useSection3D": { "type": "boolean" },
+        "showLabels": { "type": "boolean" },
+        "areaLabelOutline": { "type": "boolean" },
+        "areaLabelLetterSpacing": { "type": "number" },
+        "dimLineLabelHorizontal": { "type": "boolean" },
+        "exportLabels3D": { "type": "boolean" },
+        "showShadows3D": { "type": "boolean" },
+        "exportOrtho3D": { "type": "boolean" },
+        "visuals": { "type": "string", "enum": ["ALL", "BW", "BWC"] },
+        "showTexts": { "type": "boolean" },
+        "arrowHeadType": { "type": "string", "enum": ["arrow-stop", "stop", "reverse-arrow-stop", "arrow"] },
+        "northArrowRotation": { "type": "number" },
+        "northArrowKind": { "type": "number" },
+        "blueprintMode": { "type": "boolean" },
+        "dimLineFont": { "type": "string" },
+        "hideItemsAboveHeight": { "type": "number" },
+        "hideItemsAbove": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+
+    "Floor": {
+      "type": "object",
+      "required": ["name", "level", "height", "designs"],
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "level": { "type": "integer" },
+        "height": { "type": "number" },
+        "designs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/Floorplan" }
+        },
+        "cameras": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Camera" }
+        },
+        "drawing": { "$ref": "#/$defs/Drawing" }
+      },
+      "additionalProperties": true
+    },
+
+    "Drawing": {
+      "type": "object",
+      "required": ["x", "y", "width", "height", "visible", "url", "rotation", "alpha"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "visible": { "type": "boolean" },
+        "url": { "type": "string" },
+        "rotation": { "type": "number" },
+        "alpha": { "type": "number" },
+        "depth": { "type": "string", "enum": ["LOW", "HIGH"] }
+      },
+      "additionalProperties": false
+    },
+
+    "Camera": {
+      "type": "object",
+      "required": ["name", "type_name", "x", "y", "z", "ux", "uy", "uz", "dx", "dy", "dz", "fov", "lightSettings"],
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "type_name": { "type": "string", "enum": ["orbital", "walkthrough"] },
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "z": { "type": "number" },
+        "ux": { "type": "number" },
+        "uy": { "type": "number" },
+        "uz": { "type": "number" },
+        "dx": { "type": "number" },
+        "dy": { "type": "number" },
+        "dz": { "type": "number" },
+        "fov": { "type": "number" },
+        "lightSettings": { "$ref": "#/$defs/CameraLightSettings" },
+        "background_image": { "type": "object" }
+      },
+      "additionalProperties": true
+    },
+
+    "CameraLightSettings": {
+      "type": "object",
+      "required": ["altitude", "azimuth", "day", "intensity", "profile"],
+      "properties": {
+        "altitude": { "type": "number" },
+        "azimuth": { "type": "number" },
+        "day": { "type": "boolean" },
+        "intensity": { "type": "number" },
+        "profile": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+
+    "Floorplan": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "walls": { "type": "array", "items": { "$ref": "#/$defs/Wall" } },
+        "areas": { "type": "array", "items": { "$ref": "#/$defs/Area" } },
+        "surfaces": { "type": "array", "items": { "$ref": "#/$defs/Surface" } },
+        "dimensions": { "type": "array", "items": { "$ref": "#/$defs/Dimension" } },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/Item" } },
+        "labels": { "type": "array", "items": { "$ref": "#/$defs/Label" } },
+        "lines": { "type": "array", "items": { "$ref": "#/$defs/Line" } },
+        "settings": { "$ref": "#/$defs/DesignSettings" }
+      },
+      "additionalProperties": true
+    },
+
+    "DesignSettings": {
+      "type": "object",
+      "properties": {
+        "engineAutoThickness": { "type": "boolean" },
+        "engineAutoDims": { "type": "boolean" },
+        "areaLabelMultiplier": { "type": "number" },
+        "scaleMultiplierDimensions": { "type": "number" },
+        "scaleMultiplierComments": { "type": "number" },
+        "showCeilings3D": { "type": "boolean" },
+        "minWallLength": { "type": "number" }
+      },
+      "additionalProperties": true
+    },
+
+    "Wall": {
+      "type": "object",
+      "required": ["a", "b", "az", "bz", "thickness", "balance", "openings", "decor"],
+      "properties": {
+        "a": { "$ref": "#/$defs/Point" },
+        "b": { "$ref": "#/$defs/Point" },
+        "c": {
+          "oneOf": [
+            { "$ref": "#/$defs/Point" },
+            { "type": "null" }
+          ]
+        },
+        "az": { "$ref": "#/$defs/Endpoint3D" },
+        "bz": { "$ref": "#/$defs/Endpoint3D" },
+        "thickness": { "type": "number" },
+        "balance": { "type": "number", "minimum": 0, "maximum": 1 },
+        "openings": { "type": "array", "items": { "$ref": "#/$defs/Opening" } },
+        "decor": { "$ref": "#/$defs/WallDecor" }
+      },
+      "additionalProperties": true
+    },
+
+    "Opening": {
+      "type": "object",
+      "required": ["type", "refid", "width", "z", "z_height", "t"],
+      "properties": {
+        "type": { "type": "string", "enum": ["door", "window"] },
+        "refid": { "type": "string", "pattern": "^[a-zA-Z]" },
+        "width": { "type": "number" },
+        "z": { "type": "number" },
+        "z_height": { "type": "number" },
+        "t": { "type": "number", "minimum": 0, "maximum": 1 },
+        "frameColor": { "$ref": "#/$defs/Color" },
+        "mirrored": {
+          "type": "array",
+          "items": { "type": "integer", "enum": [0, 1] },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "doorColor": { "$ref": "#/$defs/Color" }
+      },
+      "additionalProperties": true
+    },
+
+    "WallDecor": {
+      "type": "object",
+      "required": ["left", "right"],
+      "properties": {
+        "left": { "$ref": "#/$defs/WallSideDecor" },
+        "right": { "$ref": "#/$defs/WallSideDecor" }
+      },
+      "additionalProperties": false
+    },
+
+    "WallSideDecor": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "properties": {
+            "color": { "$ref": "#/$defs/Color" },
+            "refid": { "type": "string" },
+            "texture": { "$ref": "#/$defs/WallTexture" }
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+
+    "WallTexture": {
+      "type": "object",
+      "required": ["src", "fit", "tlx", "tly", "brx", "bry"],
+      "properties": {
+        "src": { "type": "string" },
+        "fit": { "type": "string", "enum": ["free", "no-stretch", "fill", "contain", "tile-horizontally", "tile-vertically", "tile-both"] },
+        "tlx": { "type": "number" },
+        "tly": { "type": "number" },
+        "brx": { "type": "number" },
+        "bry": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+
+    "TextureProps": {
+      "type": "object",
+      "properties": {
+        "rotation": { "type": "number" },
+        "tx": { "type": "number" },
+        "ty": { "type": "number" },
+        "sx": { "type": "number" },
+        "sy": { "type": "number" }
+      }
+    },
+
+    "Area": {
+      "type": "object",
+      "required": ["poly", "color"],
+      "properties": {
+        "poly": { "type": "array", "items": { "$ref": "#/$defs/Point" }, "minItems": 3 },
+        "refid": { "type": "string" },
+        "color": { "$ref": "#/$defs/Color" },
+        "showSurfaceArea": { "type": "boolean" },
+        "showAreaLabel": { "type": "boolean" },
+        "name": { "type": "string" },
+        "customName": { "type": "string" },
+        "role": { "type": "number" },
+        "name_x": { "type": "number" },
+        "name_y": { "type": "number" },
+        "rotation": { "type": "number" },
+        "tx": { "type": "number" },
+        "ty": { "type": "number" },
+        "sx": { "type": "number" },
+        "sy": { "type": "number" },
+        "ceiling": { "type": "object" },
+        "roomstyle_id": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+
+    "Surface": {
+      "type": "object",
+      "required": ["poly", "color"],
+      "properties": {
+        "poly": { "type": "array", "items": { "type": "object" }, "minItems": 3 },
+        "refid": { "type": "string" },
+        "color": { "$ref": "#/$defs/Color" },
+        "showSurfaceArea": { "type": "boolean" },
+        "showAreaLabel": { "type": "boolean" },
+        "name": { "type": "string" },
+        "customName": { "type": "string" },
+        "role": { "type": "number" },
+        "name_x": { "type": "number" },
+        "name_y": { "type": "number" },
+        "rotation": { "type": "number" },
+        "tx": { "type": "number" },
+        "ty": { "type": "number" },
+        "sx": { "type": "number" },
+        "sy": { "type": "number" },
+        "isRoof": { "type": "boolean" },
+        "isCutout": { "type": "boolean" },
+        "transparency": { "type": "number" }
+      },
+      "additionalProperties": true
+    },
+
+    "Item": {
+      "type": "object",
+      "required": ["x", "y", "z", "refid", "width", "height", "z_height", "rotation"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "z": { "type": "number" },
+        "refid": { "type": "string", "pattern": "^[a-zA-Z]" },
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "z_height": { "type": "number" },
+        "rotation": { "type": "number" },
+        "mirrored": {
+          "type": "array",
+          "items": { "type": "integer", "enum": [0, 1] },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "light": { "$ref": "#/$defs/Light" },
+        "materials": { "$ref": "#/$defs/SmartMaterials" }
+      },
+      "additionalProperties": true
+    },
+
+    "Light": {
+      "type": "object",
+      "required": ["on", "color", "watt"],
+      "properties": {
+        "on": { "type": "boolean" },
+        "color": { "$ref": "#/$defs/Color" },
+        "watt": { "type": "number", "minimum": 0, "maximum": 200 }
+      },
+      "additionalProperties": false
+    },
+
+    "SmartMaterials": {
+      "type": "object",
+      "additionalProperties": { "type": "number" }
+    },
+
+    "Label": {
+      "type": "object",
+      "required": ["x", "y", "text", "fontFamily", "fontSize", "fontColor", "backgroundColor", "align", "rotation"],
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "text": { "type": "string" },
+        "fontFamily": { "type": "string" },
+        "fontSize": { "type": "number" },
+        "letterSpacing": { "type": "number" },
+        "fontColor": { "$ref": "#/$defs/Color" },
+        "backgroundColor": { "$ref": "#/$defs/Color" },
+        "backgroundAlpha": { "type": "number" },
+        "align": { "type": "string", "enum": ["left", "center", "right"] },
+        "rotation": { "type": "number" },
+        "outline": { "type": "boolean" },
+        "bold": { "type": "boolean" },
+        "italic": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+
+    "Line": {
+      "type": "object",
+      "required": ["a", "b", "type", "color", "thickness"],
+      "properties": {
+        "a": { "$ref": "#/$defs/Point" },
+        "b": { "$ref": "#/$defs/Point" },
+        "type": { "type": "string", "enum": ["solid_line", "dashed_line", "dotted_line", "dashdotted_line"] },
+        "color": { "$ref": "#/$defs/Color" },
+        "thickness": { "type": "number" }
+      },
+      "additionalProperties": true
+    },
+
+    "Dimension": {
+      "type": "object",
+      "required": ["a", "b", "type"],
+      "properties": {
+        "a": { "$ref": "#/$defs/Point" },
+        "b": { "$ref": "#/$defs/Point" },
+        "type": { "type": "string", "const": "custom_dimension" }
+      },
+      "additionalProperties": true
+    }
+  }
+}
