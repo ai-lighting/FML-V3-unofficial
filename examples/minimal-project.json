@@ -1,0 +1,24 @@
+{
+  "name": "Minimal FML Project",
+  "public": false,
+  "floors": [
+    {
+      "name": "Ground Floor",
+      "level": 0,
+      "height": 280,
+      "designs": [
+        {
+          "name": "Default Design",
+          "walls": [],
+          "areas": [],
+          "surfaces": [],
+          "dimensions": [],
+          "items": [],
+          "labels": [],
+          "lines": []
+        }
+      ],
+      "cameras": []
+    }
+  ]
+}
